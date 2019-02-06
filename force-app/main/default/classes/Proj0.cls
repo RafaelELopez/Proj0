@@ -536,7 +536,7 @@ public class ApexP0Exercise{
 
 /*
  * Author: Rafael E. Lopez M.
- * Last Modified: Feb 3, 2019
+ * Last Modified: Feb 5, 2019
  *
  * Project 0 – Custom Banking Application
  * We need to track customer accounts, see individual transactions, see any related financial details such as loan
@@ -552,7 +552,7 @@ public class ApexP0Exercise{
  */
 public class Proj0{
 
-    private Account o_account {get;set;};
+    private Account o_account {get;set;}
 
 
 
@@ -564,12 +564,12 @@ public class Proj0{
      * Check if an account is overdrawn and change the status of the account accordingly.
      */
     public void checkOverdrawn(){
-        if(o_account.Balance < 0){
-            o_account.Overdrawn = true;
+        if(o_account.Balance__c < 0){
+            o_account.Overdrawn__c = true;
         }
 
         try{
-            Database.update(oppList,true);
+            Database.update(o_account,true);
         } catch(Exception e) {
             System.debug('Update did not complete successfully.');
         }
@@ -591,20 +591,23 @@ public class Proj0{
     public void createTransaction(Double amt, String type, Account receiver){
         // Validate arguments passed for transaction type and transfer receiver
         if (type != 'Withdrawal' && type != 'Deposit' && type != 'Transfer') {
-            throw new Exception('Invalid Transaction Type');
+            System.debug('Invalid Transaction Type');
+            return;
         }
         if (type != 'Transfer' && receiver != null){
-            throw new Exception('Transaction that are not of type Transfer cannot have a Transfer Receiver account.');
+            System.debug('Transaction that are not of type Transfer cannot have a Transfer Receiver account.');
+            return;
         }
         if (type == 'Transfer' && receiver == null){
-            throw new Exception('Transfer type transactions must have a Transfer Receiver account.');
+            System.debug('Transfer type transactions must have a Transfer Receiver account.');
+            return;
         }
 
-        Transaction newTransaction = new Transaction();
+        Transaction__c newTransaction = new Transaction__c();
         // populate the transaction's custom fields
         newTransaction.Amount__c = amt;
-        newTransaction.IssuingAccount__c = o_account;
-        newTransaction.TransferReceiver = receiver;
+        newTransaction.IssuingAccount__c = o_account.Id;
+        newTransaction.TransferReceiver__c = receiver.Id;
         newTransaction.Status__c = 'Pending';
         newTransaction.TransactionType__c = type;
 
@@ -630,32 +633,31 @@ public class Proj0{
      */
     public void updateBalance(){
         // Get all transactions relating to the account
-        List<Transaction__c> transList = o_account.Transactions__c;
+        List<Transaction__c> transList = o_account.Transactions__r;
 
-        for(Transaction trans; transList){
+        for(Transaction__c trans: transList){
             if(trans.Status__c == 'Pending'){
                 switch on trans.TransactionType__c {
                     when 'Withdrawal'{
-                        if(trans.Amount__c > o_account.Balance){
+                        if(trans.Amount__c > o_account.Balance__c){
                             trans.Status__c = 'Declined';
                         } else {
-                            o_account.Balance -= trans.Amount__c;
+                            o_account.Balance__c -= trans.Amount__c;
                         }
                     }
                     when 'Deposit'{
-                        o_account += trans.Amount__c;
+                        o_account.Balance__c += trans.Amount__c;
                     }
                     when 'Transfer'{
-                        if(trans.Amount__c > o_account.Balance){
+                        if(trans.Amount__c > o_account.Balance__c){
                             trans.Status__c = 'Declined';
                         } else {
-                            o_account.Balance -= trans.Amount__c;
-                            trans.TransferReceiver__c.Balance += trans.Amount__c;
+                            o_account.Balance__c -= trans.Amount__c;
+                            trans.TransferReceiver__r.Balance__c += trans.Amount__c;
                         }
                     }
-                    trans.Status__c = 'Processed';
                 }
-
+                trans.Status__c = 'Processed';
             }
         }
         

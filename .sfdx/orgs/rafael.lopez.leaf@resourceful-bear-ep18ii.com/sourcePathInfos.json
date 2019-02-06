@@ -1,0 +1,107 @@
+[
+    [
+        "/Users/rafaelelm/code/Salesforce/Proj0/force-app",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rafaelelm/code/Salesforce/Proj0/force-app",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 96,
+            "modifiedTime": 1548943304142,
+            "changeTime": 1548943304142,
+            "contentHash": "b28b7af69320201d1cf206ebf28373980add1451",
+            "isWorkspace": false,
+            "isArtifactRoot": true
+        }
+    ],
+    [
+        "/Users/rafaelelm/code/Salesforce/Proj0/force-app/main",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rafaelelm/code/Salesforce/Proj0/force-app/main",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 96,
+            "modifiedTime": 1548943304142,
+            "changeTime": 1548943304142,
+            "contentHash": "7505d64a54e061b7acd54ccd58b49dc43500b635",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rafaelelm/code/Salesforce/Proj0/force-app/main/default",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rafaelelm/code/Salesforce/Proj0/force-app/main/default",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 128,
+            "modifiedTime": 1549128944681,
+            "changeTime": 1549128944681,
+            "contentHash": "78dd78c06e81fd7afb457ecdb5af8fae5546e0a3",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rafaelelm/code/Salesforce/Proj0/force-app/main/default/aura",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rafaelelm/code/Salesforce/Proj0/force-app/main/default/aura",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 64,
+            "modifiedTime": 1548943304142,
+            "changeTime": 1548943304142,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rafaelelm/code/Salesforce/Proj0/force-app/main/default/classes",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rafaelelm/code/Salesforce/Proj0/force-app/main/default/classes",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 96,
+            "modifiedTime": 1549290638519,
+            "changeTime": 1549290638519,
+            "contentHash": "e82613394dfba4a6a1baa7763720fae2668ed8bc",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rafaelelm/code/Salesforce/Proj0/force-app/main/default/classes/Proj0.cls",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rafaelelm/code/Salesforce/Proj0/force-app/main/default/classes/Proj0.cls",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 19157,
+            "modifiedTime": 1549419852136,
+            "changeTime": 1549419852136,
+            "contentHash": "d07b327b0bbb7d62c62672f0fc8814fb78a99d67",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/rafaelelm/code/Salesforce/Proj0",
+        {
+            "state": "n",
+            "sourcePath": "/Users/rafaelelm/code/Salesforce/Proj0",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 352,
+            "modifiedTime": 1549420039778,
+            "changeTime": 1549420039778,
+            "contentHash": "6577cfcc9d84ce5f178b50d328d09ade00dbb9b9",
+            "isWorkspace": true,
+            "isArtifactRoot": false
+        }
+    ]
+]
